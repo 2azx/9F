@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html manifest="psfree_lapse.cache">
+<head>
+<meta charset="utf-8">
+<title>AHMED FALAH Jailbreak</title>
+<style>
+body{margin:0;min-height:100vh;background:url('icon0.png') center/cover no-repeat;color:#fff;font-family:Segoe UI,Tahoma,sans-serif}
+.overlay{min-height:100vh;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center}
+.card{width:420px;padding:30px;border-radius:18px;background:rgba(20,20,20,.85);box-shadow:0 20px 40px rgba(0,0,0,.7);text-align:center}
+.title{font-size:22px;font-weight:600;margin-bottom:20px}
+#jailbreakBtn{width:100%;padding:16px;font-size:18px;font-weight:bold;border-radius:14px;border:none;background:#555;color:#aaa;cursor:not-allowed}
+#console{margin-top:20px;padding:14px;background:#0d1117;border-radius:12px;font-family:monospace;font-size:14px;text-align:left;min-height:150px}
+</style>
+</head>
+<body>
+<div class="overlay">
+<div class="card">
+<div class="title">AHMED FALAH<br>7.00 – 9.60</div>
+<button id="jailbreakBtn">Installing Cache...</button>
+<pre id="console"></pre>
+</div>
+</div>
+<script>
+history.replaceState(null,null,'index.html');history.go(-history.length);
+const outputConsole=document.getElementById("console");
+window.log=(m)=>outputConsole.textContent+=m+"\n";
+function DLProgress(e){log("[CACHE] "+Math.round(e.loaded/e.total*100)+"%")}
+function Done(){log("\n[SUCCESS] Cache installed");setTimeout(()=>location.reload(),3000)}
+applicationCache.addEventListener("progress",DLProgress,false);
+applicationCache.oncached=Done;applicationCache.onupdateready=Done;
+document.addEventListener("DOMContentLoaded",()=>{outputConsole.textContent="";log("Installing cache...")});
+</script>
+</body>
+</html>
